@@ -18,6 +18,9 @@ const Card = (props) => {
             style={{color:"red", marginTop: "7px"}} 
             onClick={() => props.clickHandler(id)}
             ></i>
+            <i className="edit alternate outline icon"
+            style={{color:"grey", marginTop:"7px"}}
+            onClick={() => props.clickHandler(id)}></i>
          </div>
    )
 }

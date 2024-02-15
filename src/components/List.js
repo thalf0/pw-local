@@ -8,11 +8,16 @@ const List = (props) => {
       props.getPasswordId(id);
    };
 
+   const updatePasswordHandler = (id) => {
+      props.getPasswordId(id)
+   }
+
    const renderList = props.passwords.map((password) => {
       return (
          <Card 
          password={password} 
          clickHandler={deletePasswordHandler} 
+         editHandler={updatePasswordHandler}
          key={ password.id }
          />
       );

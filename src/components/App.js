@@ -15,6 +15,14 @@ function App() {
     setPasswords([...passwords, { id: uuid(), ...password }])
   }
 
+  const updatePasswordHandler = (passwordId, newPassword) => {
+    if (!newPassword || /^\s*$/.test(newPassword)) {
+      return
+    }
+
+    setPasswords(prev => prev.map(item => (item.id === passwordId ? newPassword : item)))
+  }
+
   const removePasswordHandler = (id) => {
     const newPasswordList = passwords.filter((password) => {
       return password.id !== id;
@@ -35,7 +43,7 @@ function App() {
   return (
     <div className="ui container">
       <Header />
-      <Form addPasswordHandler={addPasswordHandler} />
+      <Form addPasswordHandler={addPasswordHandler} updatePasswordHandler={updatePasswordHandler}/>
       <List passwords={passwords} getPasswordId={removePasswordHandler} />
       <Footer />
     </div>
